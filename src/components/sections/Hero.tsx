@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Download, ArrowRight, Server, Brain, Code, Eye } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, ArrowRight, Server, Brain, Code } from 'lucide-react';
 import { Typewriter } from '../Typewriter';
 
 export const Hero: React.FC = () => {
