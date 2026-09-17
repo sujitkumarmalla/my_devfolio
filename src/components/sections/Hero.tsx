@@ -131,7 +131,7 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Right Side Visual Component (Floating 3D Tech Cards & Portrait) */}
-        <div className="lg:col-span-5 flex justify-center items-center relative min-h-[400px] lg:min-h-[500px]">
+        <div className="lg:col-span-5 flex flex-col justify-center items-center min-h-[350px] sm:min-h-[400px] lg:min-h-[500px] mt-8 lg:mt-0 w-full relative">
           
           {/* Central Portrait Image with Glow and Border */}
           <motion.div
@@ -139,9 +139,9 @@ export const Hero: React.FC = () => {
             animate={{ opacity: 1, scale: 1 }}
             whileHover={{ scale: 1.04, rotate: 1, transition: { duration: 0.3 } }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="relative z-10 w-[240px] h-[240px] sm:w-[280px] sm:h-[280px] rounded-full overflow-hidden border-4 border-primary/40 shadow-[0_0_50px_rgba(14,165,233,0.3)] bg-gradient-to-tr from-primary/20 to-secondary/20 p-1.5 cursor-pointer"
+            className="relative z-10 w-[220px] h-[220px] sm:w-[280px] sm:h-[280px] shrink-0 aspect-square rounded-full overflow-hidden border-4 border-primary/40 shadow-2xl shadow-primary/30 bg-gradient-to-tr from-primary/20 to-secondary/20 p-1.5 cursor-pointer mx-auto"
           >
-            <div className="w-full h-full rounded-full overflow-hidden bg-bg-secondary">
+            <div className="w-full h-full rounded-full overflow-hidden bg-bg-secondary flex justify-center items-center">
               <img 
                 src="/sujit.jpg" 
                 alt="Sujit Kumar Malla - MERN & AI/ML Developer" 
@@ -150,88 +150,92 @@ export const Hero: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Floating tech widgets around the central image */}
-          {/* MERN Developer tag */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.6, y: 20 }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-              y: [0, -12, 0],
-              x: [0, -6, 0]
-            }}
-            transition={{
-              opacity: { duration: 0.8, delay: 0.2 },
-              scale: { duration: 0.8, delay: 0.2 },
-              y: { duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 0.2 },
-              x: { duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 0.2 }
-            }}
-            whileHover={{ scale: 1.08, transition: { duration: 0.2 } }}
-            className="absolute -top-4 -left-4 sm:left-0 z-20 w-[160px] p-3.5 rounded-xl glass-panel border-primary/20 flex items-center space-x-2.5 shadow-lg cursor-pointer"
-          >
-            <div className="p-2 rounded-lg bg-primary/10 text-primary">
-              <Code className="w-4 h-4" />
-            </div>
-            <div>
-              <h4 className="text-xs font-bold font-heading text-primary">MERN Developer</h4>
-              <p className="text-[9px] text-theme-muted">React & Node.js</p>
-            </div>
-          </motion.div>
+          {/* Floating tech widgets */}
+          {/* On mobile, we display them flex-wrapped below. On desktop, they float freely outside the circle. */}
+          <div className="mt-8 lg:mt-0 lg:absolute lg:inset-0 w-full h-full flex flex-wrap justify-center gap-4 lg:block pointer-events-none">
+            
+            {/* MERN Developer tag */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.6, y: 20 }}
+              animate={{
+                opacity: 1,
+                scale: 1,
+                y: [0, -12, 0],
+                x: [0, -6, 0]
+              }}
+              transition={{
+                opacity: { duration: 0.8, delay: 0.2 },
+                scale: { duration: 0.8, delay: 0.2 },
+                y: { duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 0.2 },
+                x: { duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 0.2 }
+              }}
+              whileHover={{ scale: 1.08, transition: { duration: 0.2 } }}
+              className="lg:absolute lg:top-[10%] lg:-left-4 xl:-left-12 z-20 w-[140px] sm:w-[160px] p-2 sm:p-3.5 rounded-xl glass-panel border-primary/20 flex items-center space-x-2 shadow-lg pointer-events-auto cursor-pointer"
+            >
+              <div className="p-1.5 sm:p-2 rounded-lg bg-primary/10 text-primary shrink-0">
+                <Code className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              </div>
+              <div>
+                <h4 className="text-[10px] sm:text-xs font-bold font-heading text-primary">MERN Developer</h4>
+                <p className="text-[8px] sm:text-[9px] text-theme-muted">React & Node.js</p>
+              </div>
+            </motion.div>
 
-          {/* AI/ML tag */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.6, y: 20 }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-              y: [0, 12, 0],
-              x: [0, 6, 0]
-            }}
-            transition={{
-              opacity: { duration: 0.8, delay: 0.4 },
-              scale: { duration: 0.8, delay: 0.4 },
-              y: { duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 0.4 },
-              x: { duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 0.4 }
-            }}
-            whileHover={{ scale: 1.08, transition: { duration: 0.2 } }}
-            className="absolute top-12 -right-4 sm:right-0 z-20 w-[160px] p-3.5 rounded-xl glass-panel border-accent/20 flex items-center space-x-2.5 shadow-lg cursor-pointer"
-          >
-            <div className="p-2 rounded-lg bg-accent/10 text-accent">
-              <Brain className="w-4 h-4" />
-            </div>
-            <div>
-              <h4 className="text-xs font-bold font-heading text-accent">AI & ML Intern</h4>
-              <p className="text-[9px] text-theme-muted">TensorFlow & CV</p>
-            </div>
-          </motion.div>
+            {/* AI/ML tag */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.6, y: 20 }}
+              animate={{
+                opacity: 1,
+                scale: 1,
+                y: [0, 12, 0],
+                x: [0, 6, 0]
+              }}
+              transition={{
+                opacity: { duration: 0.8, delay: 0.4 },
+                scale: { duration: 0.8, delay: 0.4 },
+                y: { duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 0.4 },
+                x: { duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 0.4 }
+              }}
+              whileHover={{ scale: 1.08, transition: { duration: 0.2 } }}
+              className="lg:absolute lg:top-1/2 lg:-translate-y-1/2 lg:-right-4 xl:-right-12 z-20 w-[140px] sm:w-[160px] p-2 sm:p-3.5 rounded-xl glass-panel border-accent/20 flex items-center space-x-2 shadow-lg pointer-events-auto cursor-pointer"
+            >
+              <div className="p-1.5 sm:p-2 rounded-lg bg-accent/10 text-accent shrink-0">
+                <Brain className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              </div>
+              <div>
+                <h4 className="text-[10px] sm:text-xs font-bold font-heading text-accent">AI & ML Intern</h4>
+                <p className="text-[8px] sm:text-[9px] text-theme-muted">TensorFlow & CV</p>
+              </div>
+            </motion.div>
 
-          {/* Status/Relocate tag */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.6, y: 20 }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-              y: [0, -8, 0],
-              x: [0, 8, 0]
-            }}
-            transition={{
-              opacity: { duration: 0.8, delay: 0.6 },
-              scale: { duration: 0.8, delay: 0.6 },
-              y: { duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 0.6 },
-              x: { duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 0.6 }
-            }}
-            whileHover={{ scale: 1.08, transition: { duration: 0.2 } }}
-            className="absolute -bottom-4 left-4 z-20 w-[170px] p-3.5 rounded-xl glass-panel border-secondary/20 flex items-center space-x-2.5 shadow-lg cursor-pointer"
-          >
-            <div className="p-2 rounded-lg bg-secondary/20 text-secondary">
-              <Server className="w-4 h-4" />
-            </div>
-            <div>
-              <h4 className="text-xs font-bold font-heading text-theme-sec">Ready to Code</h4>
-              <p className="text-[9px] text-theme-muted">MERN & Smart AI models</p>
-            </div>
-          </motion.div>
-          
+            {/* Status/Relocate tag */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.6, y: 20 }}
+              animate={{
+                opacity: 1,
+                scale: 1,
+                y: [0, -8, 0],
+                x: [0, 8, 0]
+              }}
+              transition={{
+                opacity: { duration: 0.8, delay: 0.6 },
+                scale: { duration: 0.8, delay: 0.6 },
+                y: { duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 0.6 },
+                x: { duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 0.6 }
+              }}
+              whileHover={{ scale: 1.08, transition: { duration: 0.2 } }}
+              className="lg:absolute lg:bottom-[10%] lg:left-[10%] xl:left-0 z-20 w-[150px] sm:w-[170px] p-2 sm:p-3.5 rounded-xl glass-panel border-secondary/20 flex items-center space-x-2 shadow-lg pointer-events-auto cursor-pointer"
+            >
+              <div className="p-1.5 sm:p-2 rounded-lg bg-secondary/20 text-secondary shrink-0">
+                <Server className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              </div>
+              <div>
+                <h4 className="text-[10px] sm:text-xs font-bold font-heading text-theme-sec">Ready to Code</h4>
+                <p className="text-[8px] sm:text-[9px] text-theme-muted">MERN & Smart AI models</p>
+              </div>
+            </motion.div>
+            
+          </div>
         </div>
       </div>
 

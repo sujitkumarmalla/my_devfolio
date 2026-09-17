@@ -13,16 +13,6 @@ interface Particle {
   color: string;
 }
 
-interface Bubble {
-  x: number;
-  y: number;
-  vx: number;
-  vy: number;
-  radius: number;
-  maxRadius: number;
-  life: number;
-  decay: number;
-}
 
 export const Canvas3D: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -48,18 +38,12 @@ export const Canvas3D: React.FC = () => {
     };
     window.addEventListener('resize', handleResize);
 
-    // Track mouse and spawn bubbles
     const handleMouseMove = (e: MouseEvent) => {
       mouseRef.current.x = e.clientX;
       mouseRef.current.y = e.clientY;
       mouseRef.current.rx = (e.clientX - width / 2) / (width / 2);
       mouseRef.current.ry = (e.clientY - height / 2) / (height / 2);
       mouseRef.current.active = true;
-
-      // Spawn bubbles on mouse move
-      if (Math.random() < 0.45) {
-        spawnBubble(e.clientX, e.clientY);
-      }
     };
 
     const handleMouseLeave = () => {
@@ -95,27 +79,6 @@ export const Canvas3D: React.FC = () => {
       });
     }
 
-    // Interactive Bubble Trail Array
-    const bubbles: Bubble[] = [];
-    const spawnBubble = (mx: number, my: number) => {
-      const count = Math.random() > 0.65 ? 2 : 1;
-      for (let i = 0; i < count; i++) {
-        const radius = Math.random() * 11 + 5; // 5px to 16px radius
-        const angle = Math.random() * Math.PI * 2;
-        const speed = Math.random() * 1.5 + 0.4;
-        bubbles.push({
-          x: mx,
-          y: my,
-          vx: Math.cos(angle) * speed,
-          vy: Math.sin(angle) * speed - 0.4, // drift up
-          radius,
-          maxRadius: radius,
-          life: 1.0,
-          decay: Math.random() * 0.02 + 0.015, // lifespan of 50-70 frames
-        });
-      }
-    };
-
     // Rotation angles
     let angleX = 0.001;
     let angleY = 0.002;
@@ -127,11 +90,6 @@ export const Canvas3D: React.FC = () => {
       ctx.clearRect(0, 0, width, height);
 
       const isDark = theme === 'dark';
-
-      // Spawn periodic hovering bubbles when mouse is stationary but active
-      if (mouseRef.current.active && Math.random() < 0.25) {
-        spawnBubble(mouseRef.current.x, mouseRef.current.y);
-      }
 
       // Dynamically adjust rotation speed based on mouse position
       const targetAngleX = mouseRef.current.active ? mouseRef.current.ry * 0.01 : 0.001;
@@ -147,8 +105,8 @@ export const Canvas3D: React.FC = () => {
       const sinY = Math.sin(angleY);
 
       // Theme-based colors for the 3D globe
-      const particleColor = isDark ? 'rgba(14, 165, 233, 0.6)' : 'rgba(59, 130, 246, 0.4)';
-      const highlightColor = isDark ? 'rgba(139, 92, 246, 0.8)' : 'rgba(139, 92, 246, 0.6)';
+      const particleColor = isDark ? 'rgba(194, 179, 163, 0.4)' : 'rgba(140, 122, 107, 0.4)';
+      const highlightColor = isDark ? 'rgba(255, 255, 255, 0.7)' : 'rgba(99, 83, 75, 0.6)';
 
       // 1. Rotate & project 3D sphere particles
       particles.forEach((p) => {
@@ -189,8 +147,8 @@ export const Canvas3D: React.FC = () => {
             // Fading opacity based on distance
             const alpha = (1 - dist / maxDistance) * (isDark ? 0.12 : 0.08);
             ctx.strokeStyle = isDark 
-              ? `rgba(14, 165, 233, ${alpha})` 
-              : `rgba(59, 130, 246, ${alpha})`;
+              ? `rgba(194, 179, 163, ${alpha})` 
+              : `rgba(140, 122, 107, ${alpha})`;
             ctx.beginPath();
             ctx.moveTo(pi.px, pi.py);
             ctx.lineTo(pj.px, pj.py);
@@ -230,59 +188,6 @@ export const Canvas3D: React.FC = () => {
           ctx.shadowBlur = 0; // Reset
         }
       });
-
-      // 4. Update & draw 3D glossy cursor bubbles trail
-      for (let i = bubbles.length - 1; i >= 0; i--) {
-        const b = bubbles[i];
-
-        b.x += b.vx;
-        b.y += b.vy;
-        
-        // Gentle buoyancy forces bubbles upward
-        b.vy -= 0.025;
-
-        // Apply friction
-        b.vx *= 0.97;
-        b.vy *= 0.97;
-
-        // Reduce life
-        b.life -= b.decay;
-
-        if (b.life <= 0) {
-          bubbles.splice(i, 1);
-          continue;
-        }
-
-        const alpha = b.life * (isDark ? 0.7 : 0.45);
-        const currentRadius = b.radius * (0.35 + 0.65 * b.life); // Shrink as they fade
-
-        ctx.beginPath();
-        
-        // 3D specular highlighting gradient centered top-left on sphere
-        const grad = ctx.createRadialGradient(
-          b.x - currentRadius * 0.25, b.y - currentRadius * 0.25, currentRadius * 0.08,
-          b.x, b.y, currentRadius
-        );
-
-        // Alternating bubble core colors to match theme
-        const baseColor = i % 2 === 0 ? '14, 165, 233' : '139, 92, 246'; // Cyan & Purple
-
-        // Gradient color stops for 3D sphere illusion
-        grad.addColorStop(0, `rgba(255, 255, 255, ${alpha * 0.95})`); // Specular center
-        grad.addColorStop(0.35, `rgba(${baseColor}, ${alpha * 0.35})`); // Sphere body
-        grad.addColorStop(0.8, `rgba(${baseColor}, ${alpha * 0.65})`); // Thick glass rim
-        grad.addColorStop(1, `rgba(${baseColor}, 0)`); // Outer edge falloff
-
-        ctx.fillStyle = grad;
-        ctx.arc(b.x, b.y, currentRadius, 0, Math.PI * 2);
-        ctx.fill();
-
-        // Extra realistic reflection highlight glint
-        ctx.beginPath();
-        ctx.fillStyle = `rgba(255, 255, 255, ${alpha * 0.6})`;
-        ctx.arc(b.x - currentRadius * 0.32, b.y - currentRadius * 0.32, currentRadius * 0.12, 0, Math.PI * 2);
-        ctx.fill();
-      }
 
       animationFrameId = requestAnimationFrame(render);
     };

@@ -22,7 +22,7 @@ export const About: React.FC = () => {
       degree: 'B.Tech in Computer Science Engineering',
       institution: 'GIFT Autonomous, Bhubaneswar',
       duration: 'Ongoing',
-      grade: 'CGPA: 8.49 / 10',
+      grade: 'CGPA: 8.56 / 10',
     },
     {
       degree: 'Intermediate (CHSE Odisha)',

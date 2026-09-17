@@ -83,10 +83,54 @@ export const Skills: React.FC = () => {
     },
   ];
 
+  const appIcons = [
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg", alt: "React", top: "10%", left: "5%", delay: 0 },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg", alt: "Node.js", top: "45%", right: "8%", delay: 1.5 },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg", alt: "Python", bottom: "15%", left: "10%", delay: 3 },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg", alt: "MongoDB", top: "70%", right: "15%", delay: 2 },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg", alt: "Tailwind", top: "20%", right: "20%", delay: 0.5 },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg", alt: "Java", bottom: "25%", left: "25%", delay: 2.5 },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg", alt: "JS", top: "50%", left: "15%", delay: 1 },
+  ];
+
   return (
     <section id="skills" className="py-24 relative overflow-hidden">
+      {/* Background Orbs */}
       <div className="absolute top-[30%] right-[5%] w-[300px] h-[300px] bg-secondary ambient-orb animate-pulse-glow" style={{ animationDuration: '12s' }} />
+      <div className="absolute bottom-[20%] left-[5%] w-[250px] h-[250px] bg-primary ambient-orb animate-pulse-glow" style={{ animationDuration: '15s' }} />
       
+      {/* Floating App Icons Background */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        {appIcons.map((icon, idx) => (
+          <motion.div
+            key={idx}
+            className="absolute p-1.5 md:p-3 rounded-xl md:rounded-2xl glass-card border-glass shadow-[0_0_15px_rgba(255,255,255,0.1)] flex"
+            style={{
+              top: icon.top,
+              bottom: icon.bottom,
+              left: icon.left,
+              right: icon.right,
+            }}
+            initial={{ opacity: 0, scale: 0 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            animate={{
+              y: [0, -15, 0],
+              x: [0, 8, -8, 0],
+              rotate: [0, 5, -5, 0],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              delay: icon.delay,
+              ease: "easeInOut"
+            }}
+          >
+            <img src={icon.src} alt={icon.alt} className="w-5 h-5 md:w-8 md:h-8 object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
+          </motion.div>
+        ))}
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Heading */}
@@ -110,7 +154,7 @@ export const Skills: React.FC = () => {
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
             >
-              <TiltCard className="p-6 rounded-2xl glass-card border-glass h-full flex flex-col justify-between" maxTilt={8}>
+              <TiltCard className="p-6 rounded-2xl glass-card border-glass h-full flex flex-col justify-between backdrop-blur-3xl" maxTilt={8}>
                 <div>
                   {/* Category Header */}
                   <div className="flex items-center space-x-3 mb-6">
