@@ -86,7 +86,7 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-24 relative overflow-hidden bg-secondary/30">
+    <section id="contact" className="py-24 relative overflow-hidden bg-theme-bg-sec/30">
       <div className="absolute bottom-[20%] right-[10%] w-[300px] h-[300px] bg-primary ambient-orb animate-pulse-glow" style={{ animationDuration: '16s' }} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -97,7 +97,7 @@ export const Contact: React.FC = () => {
             Get In Touch
           </h2>
           <div className="w-16 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-4 rounded-full" />
-          <p className="text-sm text-secondary mt-4">
+          <p className="text-sm text-theme-sec mt-4">
             Feel free to reach out for internship opportunities, collaborations, or inquiries.
           </p>
         </div>
@@ -107,8 +107,8 @@ export const Contact: React.FC = () => {
           
           {/* Left Column: Direct Info Cards */}
           <div className="lg:col-span-5 space-y-6">
-            <h3 className="text-xl font-bold font-heading text-secondary mb-2">Contact Information</h3>
-            <p className="text-xs text-secondary leading-relaxed mb-6">
+            <h3 className="text-xl font-bold font-heading text-theme-sec mb-2">Contact Information</h3>
+            <p className="text-xs text-theme-sec leading-relaxed mb-6">
               I am open to MERN Stack development and AI/ML entry-level positions. Drop me a line!
             </p>
 
@@ -116,14 +116,14 @@ export const Contact: React.FC = () => {
             {[
               { icon: <Mail className="w-5 h-5 text-primary" />, title: 'Email Me', detail: 'sujitmalla000@gmail.com', sub: 'smalla2023@gift.edu.in', link: 'mailto:sujitmalla000@gmail.com' },
               { icon: <Phone className="w-5 h-5 text-accent" />, title: 'Call Me', detail: '+91 9348795837', sub: 'Mon - Sat (9am - 7pm)', link: 'tel:+919348795837' },
-              { icon: <MapPin className="w-5 h-5 text-secondary" />, title: 'Location', detail: 'Bhubaneswar, Odisha, India', sub: 'Willing to relocate' }
+              { icon: <MapPin className="w-5 h-5 text-theme-sec" />, title: 'Location', detail: 'Bhubaneswar, Odisha, India', sub: 'Willing to relocate' }
             ].map((info) => (
               <TiltCard key={info.title} className="p-5 rounded-2xl glass-card border-glass flex items-center space-x-4" maxTilt={6}>
-                <div className="p-3 rounded-xl bg-secondary/50 border border-glass flex items-center justify-center">
+                <div className="p-3 rounded-xl bg-theme-bg-sec/50 border border-glass flex items-center justify-center">
                   {info.icon}
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-secondary uppercase tracking-wider">{info.title}</h4>
+                  <h4 className="text-xs font-bold text-theme-sec uppercase tracking-wider">{info.title}</h4>
                   {info.link ? (
                     <a href={info.link} className="text-sm font-semibold text-primary hover:underline mt-1 block">
                       {info.detail}
@@ -146,7 +146,7 @@ export const Contact: React.FC = () => {
               transition={{ duration: 0.6 }}
               className="p-6 sm:p-8 rounded-3xl glass-panel border-glass"
             >
-              <h3 className="text-xl font-bold font-heading text-secondary mb-6">Send A Message</h3>
+              <h3 className="text-xl font-bold font-heading text-theme-sec mb-6">Send A Message</h3>
 
               {status === 'success' ? (
                 <motion.div
@@ -156,7 +156,7 @@ export const Contact: React.FC = () => {
                 >
                   <CheckCircle2 className="w-12 h-12 text-emerald-500 mx-auto animate-bounce" />
                   <h4 className="text-base font-bold text-emerald-500">Message Sent Successfully!</h4>
-                  <p className="text-xs text-secondary leading-relaxed max-w-sm mx-auto">
+                  <p className="text-xs text-theme-sec leading-relaxed max-w-sm mx-auto">
                     Thank you for reaching out, Sujit. I have received your message and will respond as soon as possible.
                   </p>
                   <button
@@ -188,7 +188,7 @@ export const Contact: React.FC = () => {
                         value={formState.name}
                         onChange={handleChange}
                         placeholder="xyz"
-                        className="w-full px-4 py-3 rounded-xl bg-secondary/40 border border-glass text-secondary text-sm focus:outline-none focus:border-primary transition-colors focus:ring-1 focus:ring-primary/20"
+                        className="w-full px-4 py-3 rounded-xl bg-theme-bg-sec/40 border border-glass text-theme-sec text-sm focus:outline-none focus:border-primary transition-colors focus:ring-1 focus:ring-primary/20"
                         required
                       />
                     </div>
@@ -205,7 +205,7 @@ export const Contact: React.FC = () => {
                         value={formState.email}
                         onChange={handleChange}
                         placeholder="xyz@example.com"
-                        className="w-full px-4 py-3 rounded-xl bg-secondary/40 border border-glass text-secondary text-sm focus:outline-none focus:border-primary transition-colors focus:ring-1 focus:ring-primary/20"
+                        className="w-full px-4 py-3 rounded-xl bg-theme-bg-sec/40 border border-glass text-theme-sec text-sm focus:outline-none focus:border-primary transition-colors focus:ring-1 focus:ring-primary/20"
                         required
                       />
                     </div>
@@ -223,7 +223,7 @@ export const Contact: React.FC = () => {
                       value={formState.subject}
                       onChange={handleChange}
                       placeholder="Opportunity / Collaboration"
-                      className="w-full px-4 py-3 rounded-xl bg-secondary/40 border border-glass text-secondary text-sm focus:outline-none focus:border-primary transition-colors focus:ring-1 focus:ring-primary/20"
+                      className="w-full px-4 py-3 rounded-xl bg-theme-bg-sec/40 border border-glass text-theme-sec text-sm focus:outline-none focus:border-primary transition-colors focus:ring-1 focus:ring-primary/20"
                     />
                   </div>
 
@@ -239,7 +239,7 @@ export const Contact: React.FC = () => {
                       onChange={handleChange}
                       rows={5}
                       placeholder="Write your message here..."
-                      className="w-full px-4 py-3 rounded-xl bg-secondary/40 border border-glass text-secondary text-sm focus:outline-none focus:border-primary transition-colors focus:ring-1 focus:ring-primary/20 resize-none"
+                      className="w-full px-4 py-3 rounded-xl bg-theme-bg-sec/40 border border-glass text-theme-sec text-sm focus:outline-none focus:border-primary transition-colors focus:ring-1 focus:ring-primary/20 resize-none"
                       required
                     />
                   </div>

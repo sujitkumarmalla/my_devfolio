@@ -141,7 +141,7 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="relative z-10 w-[240px] h-[240px] sm:w-[280px] sm:h-[280px] rounded-full overflow-hidden border-4 border-primary/40 shadow-[0_0_50px_rgba(14,165,233,0.3)] bg-gradient-to-tr from-primary/20 to-secondary/20 p-1.5 cursor-pointer"
           >
-            <div className="w-full h-full rounded-full overflow-hidden bg-bg-secondary">
+            <div className="w-full h-full rounded-full overflow-hidden bg-theme-bg-sec">
               <img 
                 src="/sujit.jpg" 
                 alt="Sujit Kumar Malla - MERN & AI/ML Developer" 
@@ -223,7 +223,7 @@ export const Hero: React.FC = () => {
             whileHover={{ scale: 1.08, transition: { duration: 0.2 } }}
             className="absolute -bottom-4 left-4 z-20 w-[170px] p-3.5 rounded-xl glass-panel border-secondary/20 flex items-center space-x-2.5 shadow-lg cursor-pointer"
           >
-            <div className="p-2 rounded-lg bg-secondary/20 text-secondary">
+            <div className="p-2 rounded-lg bg-theme-bg-sec/20 text-theme-sec">
               <Server className="w-4 h-4" />
             </div>
             <div>

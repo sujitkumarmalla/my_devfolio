@@ -41,7 +41,7 @@ function App() {
 
   if (loading) {
     return (
-      <div className="fixed inset-0 z-50 bg-[#030712] flex flex-col items-center justify-center text-white px-4">
+      <div className="fixed inset-0 z-50 bg-[var(--bg-primary)] flex flex-col items-center justify-center text-white px-4">
         <div className="flex flex-col items-center space-y-6 max-w-sm w-full text-center">
           {/* Animated Spinner Icon */}
           <div className="relative">

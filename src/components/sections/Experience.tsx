@@ -47,7 +47,7 @@ export const Experience: React.FC = () => {
   ];
 
   return (
-    <section id="experience" className="py-24 relative overflow-hidden bg-secondary/30">
+    <section id="experience" className="py-24 relative overflow-hidden bg-theme-bg-sec/30">
       <div className="absolute bottom-[20%] left-[5%] w-[300px] h-[300px] bg-accent ambient-orb animate-pulse-glow" style={{ animationDuration: '15s' }} />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

@@ -19,7 +19,7 @@ export const Skills: React.FC = () => {
     {
       title: 'Programming Languages',
       icon: <Code2 className="w-5 h-5" />,
-      color: 'from-blue-500 to-cyan-400',
+      color: 'from-primary to-accent',
       skills: [
         { name: 'Java', level: 90 },
         { name: 'JavaScript (ES6+)', level: 88 },
@@ -29,7 +29,7 @@ export const Skills: React.FC = () => {
     {
       title: 'Frontend Development',
       icon: <Layout className="w-5 h-5" />,
-      color: 'from-cyan-500 to-blue-500',
+      color: 'from-accent to-primary',
       skills: [
         { name: 'React.js', level: 92 },
         { name: 'Tailwind CSS', level: 90 },
@@ -40,7 +40,7 @@ export const Skills: React.FC = () => {
     {
       title: 'Backend & APIs',
       icon: <Server className="w-5 h-5" />,
-      color: 'from-indigo-500 to-purple-500',
+      color: 'from-secondary to-primary',
       skills: [
         { name: 'Node.js & Express.js', level: 87 },
         { name: 'REST APIs', level: 90 },
@@ -51,7 +51,7 @@ export const Skills: React.FC = () => {
     {
       title: 'Databases',
       icon: <Database className="w-5 h-5" />,
-      color: 'from-emerald-500 to-teal-500',
+      color: 'from-primary to-secondary',
       skills: [
         { name: 'MongoDB', level: 89 },
         { name: 'MySQL / SQL', level: 82 },
@@ -60,7 +60,7 @@ export const Skills: React.FC = () => {
     {
       title: 'AI & Machine Learning',
       icon: <Brain className="w-5 h-5" />,
-      color: 'from-violet-500 to-fuchsia-500',
+      color: 'from-accent to-secondary',
       skills: [
         { name: 'TensorFlow & Keras', level: 78 },
         { name: 'Scikit-learn', level: 82 },
@@ -72,7 +72,7 @@ export const Skills: React.FC = () => {
     {
       title: 'Tools & DevOps',
       icon: <Settings className="w-5 h-5" />,
-      color: 'from-rose-500 to-orange-500',
+      color: 'from-secondary to-accent',
       skills: [
         { name: 'Git & GitHub', level: 90 },
         { name: 'Postman', level: 88 },
@@ -85,7 +85,7 @@ export const Skills: React.FC = () => {
 
   return (
     <section id="skills" className="py-24 relative overflow-hidden">
-      <div className="absolute top-[30%] right-[5%] w-[300px] h-[300px] bg-secondary ambient-orb animate-pulse-glow" style={{ animationDuration: '12s' }} />
+      <div className="absolute top-[30%] right-[5%] w-[300px] h-[300px] bg-theme-bg-sec ambient-orb animate-pulse-glow" style={{ animationDuration: '12s' }} />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         

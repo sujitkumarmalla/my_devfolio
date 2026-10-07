@@ -17,6 +17,46 @@ export const Projects: React.FC = () => {
   const [filter, setFilter] = useState<'all' | 'mern' | 'ai-ml'>('all');
 
   const projects: Project[] = [
+
+    {
+      title: 'Real Estate Management Platform',
+      category: 'mern',
+      description: 'A complete real estate portal supporting multi-tier roles (Buyer, Seller, Admin) and interactive communication.',
+      tags: ['MERN Stack', 'Socket.io', 'JWT Auth', 'OTP Verification', 'REST API'],
+      github: 'https://github.com/sujitkumarmalla/Real-Estate-Platform-using-mern_stack',
+      demo: 'https://real-estate-platform-using-mern-sta-lake.vercel.app/',
+      highlights: [
+        'Built real-time agent-to-buyer messaging using Socket.io web sockets.',
+        'Designed property image content analysis modules for automated labeling.',
+        'Secured with dual-factor OTP SMS verification and JWT tokens.'
+      ],
+    },
+    {
+      title: 'Hospital Management System',
+      category: 'mern',
+      description: 'A comprehensive hospital management platform with role-based access, workflow automation, and dedicated dashboards for Admin, Doctor, Receptionist, Pharmacy, and Laboratory staff.',
+      tags: ['MERN Stack', 'RBAC', 'JWT Auth', 'REST API', 'MongoDB'],
+      github: 'https://github.com/sujitkumarmalla/briskode_tehnology_pvt_ltd/tree/main/hospictal_management_system',
+      demo: 'https://hospictal-front.vercel.app/',
+      highlights: [
+        'Built a professional landing page with dedicated dashboards for Admin, Doctor, Receptionist, Pharmacy, and Laboratory roles.',
+        'Implemented role-based authentication and authorization using JWT to secure hospital workflows and resources.',
+        'Developed integrated modules for appointments, billing, prescriptions, pharmacy inventory, and laboratory management.'
+      ],
+    },
+    {
+      title: 'Real-Time Chat Application',
+      category: 'mern',
+      description: 'A responsive direct messaging interface supporting group threads and user availability states.',
+      tags: ['React.js', 'Node.js', 'MongoDB', 'Socket.io', 'Tailwind CSS'],
+      github: 'https://github.com/sujitkumarmalla/ChatApp-using-MERN',
+      demo: "https://chatappbysujitusingmernstack.onrender.com",
+      highlights: [
+        'Pushed immediate notifications for message updates and new connections.',
+        'Implemented tracking states displaying green indicators for online users.',
+        'Ensured highly responsive fluid UI layout across mobile screens.'
+      ],
+    },
     {
       title: 'QuickGPT - AI Chat & Image Platform',
       category: 'mern',
@@ -28,31 +68,6 @@ export const Projects: React.FC = () => {
         'Integrated Gemini AI API for conversational logic and creative generation.',
         'Implemented Stripe payment gateway with webhook verification for handling subscription purchases.',
         'Added ImageKit for media asset caching, storage, and optimization.'
-      ],
-    },
-    {
-      title: 'Real Estate Management Platform',
-      category: 'mern',
-      description: 'A complete real estate portal supporting multi-tier roles (Buyer, Seller, Admin) and interactive communication.',
-      tags: ['MERN Stack', 'Socket.io', 'JWT Auth', 'OTP Verification', 'REST API'],
-      github: 'https://github.com/sujitkumarmalla/Real-Estate-Platform-using-mern_stack',
-      highlights: [
-        'Built real-time agent-to-buyer messaging using Socket.io web sockets.',
-        'Designed property image content analysis modules for automated labeling.',
-        'Secured with dual-factor OTP SMS verification and JWT tokens.'
-      ],
-    },
-    {
-      title: 'Real-Time Chat Application',
-      category: 'mern',
-      description: 'A responsive direct messaging interface supporting group threads and user availability states.',
-      tags: ['React.js', 'Node.js', 'MongoDB', 'Socket.io', 'Tailwind CSS'],
-      github: 'https://github.com/sujitkumarmalla/ChatApp-using-MERN',
-      demo:"https://chatappbysujitusingmernstack.onrender.com",
-      highlights: [
-        'Pushed immediate notifications for message updates and new connections.',
-        'Implemented tracking states displaying green indicators for online users.',
-        'Ensured highly responsive fluid UI layout across mobile screens.'
       ],
     },
     {
@@ -91,10 +106,36 @@ export const Projects: React.FC = () => {
         'Built during AI & ML internship at CTTC Bhubaneswar.'
       ],
     },
+    {
+      title: 'Spam Message Classifier',
+      category: 'ai-ml',
+      description: 'An NLP-based machine learning system that classifies messages as spam or legitimate with high prediction accuracy.',
+      tags: ['Python', 'NLP', 'Scikit-learn', 'Machine Learning', 'TF-IDF'],
+      github: 'https://github.com/sujitkumarmalla/SPAM_MESSAGE_CLASSIFIER',
+      demo: '',
+      highlights: [
+        'Built an NLP-based spam detection model achieving 97% classification accuracy.',
+        'Applied text preprocessing and TF-IDF feature extraction to convert messages into machine-learning features.',
+        'Trained and evaluated classification models to accurately distinguish spam messages from legitimate messages.'
+      ],
+    },
+    {
+      title: 'Treasure Hunt Game',
+      category: 'ai-ml',
+      description: 'An interactive command-line treasure hunt game developed in Python with logic-based challenges and player decision-making.',
+      tags: ['Python', 'Game Development', 'OOP', 'Logic Building'],
+      github: 'https://github.com/sujitkumarmalla/TREASUREHUNT-GAME-BY-USING-PYTHON',
+      demo: '',
+      highlights: [
+        'Developed an interactive treasure hunt game entirely using Python.',
+        'Implemented game logic, conditional decision-making, and multiple gameplay paths.',
+        'Designed an engaging text-based experience to strengthen Python programming and problem-solving skills.'
+      ],
+    },
   ];
 
-  const filteredProjects = filter === 'all' 
-    ? projects 
+  const filteredProjects = filter === 'all'
+    ? projects
     : projects.filter(p => p.category === filter);
 
   return (
@@ -102,7 +143,7 @@ export const Projects: React.FC = () => {
       <div className="absolute top-[10%] left-[5%] w-[350px] h-[350px] bg-primary ambient-orb animate-pulse-glow" style={{ animationDuration: '9s' }} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
@@ -129,11 +170,10 @@ export const Projects: React.FC = () => {
               onClick={() => setFilter(btn.value as any)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className={`flex items-center text-xs font-semibold px-4.5 py-2.5 rounded-full border transition-all duration-300 cursor-pointer ${
-                filter === btn.value
-                  ? 'bg-primary border-primary text-white shadow-md'
-                  : 'glass-card border-glass text-theme-sec hover:border-primary/50'
-              }`}
+              className={`flex items-center text-xs font-semibold px-4.5 py-2.5 rounded-full border transition-all duration-300 cursor-pointer ${filter === btn.value
+                ? 'bg-primary border-primary text-white shadow-md'
+                : 'glass-card border-glass text-theme-sec hover:border-primary/50'
+                }`}
             >
               {btn.icon}
               {btn.label}
@@ -142,8 +182,8 @@ export const Projects: React.FC = () => {
         </div>
 
         {/* Project Cards Grid */}
-        <motion.div 
-          layout 
+        <motion.div
+          layout
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           <AnimatePresence mode="popLayout">
@@ -160,19 +200,18 @@ export const Projects: React.FC = () => {
                   <div>
                     {/* Category Icon Badge */}
                     <div className="flex justify-between items-start mb-4">
-                      <span className={`text-[10px] px-2.5 py-1 rounded-full font-bold uppercase tracking-wider ${
-                        proj.category === 'mern' 
-                          ? 'bg-primary/10 text-primary border border-primary/20' 
-                          : 'bg-accent/10 text-accent border border-accent/20'
-                      }`}>
+                      <span className={`text-[10px] px-2.5 py-1 rounded-full font-bold uppercase tracking-wider ${proj.category === 'mern'
+                        ? 'bg-primary/10 text-primary border border-primary/20'
+                        : 'bg-accent/10 text-accent border border-accent/20'
+                        }`}>
                         {proj.category === 'mern' ? 'MERN App' : 'AI / ML'}
                       </span>
 
                       {/* Code repositories / Demo */}
                       <div className="flex items-center space-x-2">
-                        <a 
-                          href={proj.github} 
-                          target="_blank" 
+                        <a
+                          href={proj.github}
+                          target="_blank"
                           rel="noopener noreferrer"
                           className="p-2 rounded-lg bg-theme-bg-sec/50 border border-glass text-theme-sec hover:text-primary hover:border-primary transition-colors"
                           aria-label="View Github Repository"
@@ -180,9 +219,9 @@ export const Projects: React.FC = () => {
                           <Github className="w-4 h-4" />
                         </a>
                         {proj.demo && (
-                          <a 
-                            href={proj.demo} 
-                            target="_blank" 
+                          <a
+                            href={proj.demo}
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="p-2 rounded-lg bg-theme-bg-sec/50 border border-glass text-theme-sec hover:text-primary hover:border-primary transition-colors"
                             aria-label="View Live Project"
@@ -215,8 +254,8 @@ export const Projects: React.FC = () => {
                   {/* Skills/Tags */}
                   <div className="flex flex-wrap gap-1.5 border-t border-glass pt-4">
                     {proj.tags.map((tag) => (
-                      <span 
-                        key={tag} 
+                      <span
+                        key={tag}
                         className="text-[9px] px-2 py-0.5 rounded-md bg-theme-bg-sec border border-glass text-theme-sec font-semibold"
                       >
                         {tag}

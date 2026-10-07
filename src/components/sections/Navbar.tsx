@@ -89,7 +89,7 @@ export const Navbar: React.FC = () => {
             {/* Theme Toggle Button */}
             <button
               onClick={toggleTheme}
-              className="p-2.5 rounded-full glass-card hover:border-primary transition-all duration-300 text-secondary hover:text-primary"
+              className="p-2.5 rounded-full glass-card hover:border-primary transition-all duration-300 text-theme-sec hover:text-primary"
               aria-label="Toggle Theme Mode"
             >
               {theme === 'dark' ? (
@@ -105,7 +105,7 @@ export const Navbar: React.FC = () => {
             {/* Theme toggle for mobile */}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full glass-card text-secondary"
+              className="p-2 rounded-full glass-card text-theme-sec"
               aria-label="Toggle Theme Mode"
             >
               {theme === 'dark' ? (
@@ -117,7 +117,7 @@ export const Navbar: React.FC = () => {
 
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-md glass-card text-secondary hover:text-primary"
+              className="p-2 rounded-md glass-card text-theme-sec hover:text-primary"
               aria-label="Toggle Menu"
             >
               {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -137,7 +137,7 @@ export const Navbar: React.FC = () => {
               className={`block py-2 text-base font-medium transition-colors ${
                 activeSection === link.href.slice(1)
                   ? 'text-primary font-bold border-l-2 border-primary pl-2'
-                  : 'text-secondary hover:text-primary'
+                  : 'text-theme-sec hover:text-primary'
               }`}
             >
               {link.name}

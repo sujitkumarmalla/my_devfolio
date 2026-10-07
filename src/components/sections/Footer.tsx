@@ -7,19 +7,19 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="border-t border-glass bg-secondary/50 py-12 relative overflow-hidden">
+    <footer className="border-t border-glass bg-theme-bg-sec/50 py-12 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
         
         {/* Logo and credits */}
         <div className="text-center md:text-left">
-          <p className="text-sm font-bold font-heading text-secondary">Sujit Kumar Malla</p>
+          <p className="text-sm font-bold font-heading text-theme-sec">Sujit Kumar Malla</p>
           <p className="text-xs text-muted mt-1.5">
             © {new Date().getFullYear()} Sujit Malla. All rights reserved.
           </p>
         </div>
 
         {/* Navigation Quick Links */}
-        <div className="flex flex-wrap justify-center gap-6 text-xs text-secondary font-medium">
+        <div className="flex flex-wrap justify-center gap-6 text-xs text-theme-sec font-medium">
           <a href="#hero" className="hover:text-primary transition-colors">Home</a>
           <a href="#about" className="hover:text-primary transition-colors">About</a>
           <a href="#skills" className="hover:text-primary transition-colors">Skills</a>
@@ -42,7 +42,7 @@ export const Footer: React.FC = () => {
                 href={soc.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-lg glass-card border-glass text-secondary hover:text-primary hover:border-primary transition-all hover:scale-105"
+                className="p-2 rounded-lg glass-card border-glass text-theme-sec hover:text-primary hover:border-primary transition-all hover:scale-105"
                 aria-label={soc.label}
               >
                 {soc.icon}

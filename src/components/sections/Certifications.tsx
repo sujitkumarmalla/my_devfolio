@@ -63,7 +63,7 @@ export const Certifications: React.FC = () => {
   ];
 
   return (
-    <section id="certifications" className="py-24 relative overflow-hidden bg-secondary/30">
+    <section id="certifications" className="py-24 relative overflow-hidden bg-theme-bg-sec/30">
       <div className="absolute top-[20%] right-[10%] w-[250px] h-[250px] bg-primary ambient-orb animate-pulse-glow" style={{ animationDuration: '11s' }} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -131,7 +131,7 @@ export const Certifications: React.FC = () => {
                     <a
                       href={cert.credentialUrl}
                       download={cert.fileName}
-                      className="flex items-center space-x-2 text-[11px] text-primary font-bold hover:text-secondary transition-colors cursor-pointer"
+                      className="flex items-center space-x-2 text-[11px] text-primary font-bold hover:text-theme-sec transition-colors cursor-pointer"
                     >
                       <Download className="w-3.5 h-3.5" />
                       <span>Download Credential</span>
